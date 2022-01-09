@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:social_media_integration/constants/constants.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({ Key? key }) : super(key: key);
@@ -42,9 +44,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'HELLO THERE',
-                    style: ,
-                  )
+                    'Sign In',
+                    style: GoogleFonts.firaSans(
+                      color: Colors.white70,
+                      fontSize: 40.0,
+                      fontWeight: FontWeight.bold,
+                    )
+                  ),
+                  SizedBox(
+                    height: 50.0,
+                  ),
+                  
                 ],
               ),
             ),

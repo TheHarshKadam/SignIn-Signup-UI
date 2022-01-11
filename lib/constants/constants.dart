@@ -3,12 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 final kLabelStyle = GoogleFonts.firaSans(
   color: Colors.white,
-  fontSize: 20.0,
+  fontSize: 15.0,
 );
 
 final kBoxDecorationStyle = BoxDecoration(
   color: Colors.purple[200],
-  borderRadius: BorderRadius.circular(10.0),
+  borderRadius: BorderRadius.circular(8.0),
   boxShadow: [
     BoxShadow(
       color: Colors.black12,

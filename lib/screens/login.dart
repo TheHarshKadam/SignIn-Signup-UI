@@ -3,13 +3,137 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:social_media_integration/constants/constants.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({ Key? key }) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool _rememberMe = false;
+  Widget _buildEmailWidget() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Email',
+          style: kLabelStyle,
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            keyboardType: TextInputType.emailAddress,
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'OpenSans',
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.email,
+                color: Colors.white,
+              ),
+              hintText: 'Enter your Email',
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPassowordWidget() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Password',
+          style: kLabelStyle,
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            obscureText: true,
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'OpenSans',
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.lock,
+                color: Colors.white,
+              ),
+              hintText: 'Enter your password',
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildrememberMe() {
+    return Container(
+      child: Row(
+        children: [
+          Theme(
+            data: ThemeData(unselectedWidgetColor: Colors.white),
+            child: Checkbox(
+              value: _rememberMe,
+              checkColor: Colors.green,
+              activeColor: Colors.white,
+              onChanged: (value) {
+                setState(() {
+                  _rememberMe = value!;
+                });
+              },
+            ),
+          ),
+          Text(
+            'Remember Me',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  Widget _buildLoginBtn() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 25.0),
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: () {},
+          style: ElevatedButton.styleFrom(
+              primary: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+              textStyle:
+                  const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+
+        child: Text(
+          'LOGIN',
+          style: TextStyle(
+            color: Colors.purple,
+            letterSpacing: 1.5,
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'OpenSans',
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,42 +143,57 @@ class _LoginScreenState extends State<LoginScreen> {
             width: double.infinity,
             height: double.infinity,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color(0xFFE1BEE7),
-                  Color(0xFFCE93D8),
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
                   Color(0xFFBA68C8),
                   Color(0xFFAB47BC),
+                  Color(0xFF9C27B0),
+                  Color(0xFF8E24AA),
                 ],
-                stops: [0.1, 0.4, 0.7, 0.9]
-              )
-            ),
+                    stops: [
+                  0.1,
+                  0.4,
+                  0.7,
+                  0.9
+                ])),
           ),
           Container(
             height: double.infinity,
             child: SingleChildScrollView(
               physics: AlwaysScrollableScrollPhysics(),
-              padding: EdgeInsets.symmetric(
-                horizontal: 40.0,
-                vertical: 120.0
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 120.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Sign In',
-                    style: GoogleFonts.firaSans(
-                      color: Colors.white70,
-                      fontSize: 40.0,
-                      fontWeight: FontWeight.bold,
-                    )
-                  ),
+                  Text('Sign In',
+                      style: GoogleFonts.firaSans(
+                        color: Colors.white70,
+                        fontSize: 40.0,
+                        fontWeight: FontWeight.bold,
+                      )),
                   SizedBox(
-                    height: 50.0,
+                    height: 30.0,
                   ),
-                  
+                  _buildEmailWidget(),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  _buildPassowordWidget(),
+                  Container(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () => print('Button Is Pressed'),
+                      child: Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                  ),
+                  _buildrememberMe(),
+                  _buildLoginBtn(),
                 ],
               ),
             ),

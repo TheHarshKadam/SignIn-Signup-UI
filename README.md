@@ -1,4 +1,4 @@
-# social_media_integration
+# Sign In Sign up UI
 
 A new Flutter project.
 

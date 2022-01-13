@@ -8,7 +8,7 @@ final kLabelStyle = GoogleFonts.firaSans(
 
 final kBoxDecorationStyle = BoxDecoration(
   color: Colors.purple[200],
-  borderRadius: BorderRadius.circular(8.0),
+  borderRadius: BorderRadius.circular(10.0),
   boxShadow: [
     BoxShadow(
       color: Colors.black12,

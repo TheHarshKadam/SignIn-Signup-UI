@@ -1,6 +1,6 @@
 # Sign In Sign up UI
 
-A new Flutter project.
+A Simple SignIn and SignUp UI made with Flutter
 
 ## Getting Started
 

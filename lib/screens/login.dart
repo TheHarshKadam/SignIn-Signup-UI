@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_media_integration/constants/constants.dart';
+import 'package:external_app_launcher/external_app_launcher.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -67,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             decoration: InputDecoration(
               border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
+              contentPadding: EdgeInsets.only(top: 15.0),
               prefixIcon: Icon(
                 Icons.lock,
                 color: Colors.white,
@@ -108,18 +109,20 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
   Widget _buildLoginBtn() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 25.0),
+      padding: EdgeInsets.symmetric(vertical: 15.0),
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {},
-          style: ElevatedButton.styleFrom(
-              primary: Colors.white,
-              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-              textStyle:
-                  const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-
+        style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+            textStyle:
+                const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(35.0)))),
         child: Text(
           'LOGIN',
           style: TextStyle(
@@ -128,6 +131,30 @@ class _LoginScreenState extends State<LoginScreen> {
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
             fontFamily: 'OpenSans',
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSocialBtn(void Function() onTap, AssetImage logo) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 60.0,
+        width: 60.0,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              offset: Offset(0, 2),
+              blurRadius: 6.0,
+            ),
+          ],
+          image: DecorationImage(
+            image: logo,
           ),
         ),
       ),
@@ -163,7 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
             height: double.infinity,
             child: SingleChildScrollView(
               physics: AlwaysScrollableScrollPhysics(),
-              padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 120.0),
+              padding: EdgeInsets.symmetric(horizontal: 35.0, vertical: 90.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -174,7 +201,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontWeight: FontWeight.bold,
                       )),
                   SizedBox(
-                    height: 30.0,
+                    height: 10.0,
                   ),
                   _buildEmailWidget(),
                   SizedBox(
@@ -194,6 +221,48 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   _buildrememberMe(),
                   _buildLoginBtn(),
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        '- OR -',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      SizedBox(height: 15.0),
+                      Text(
+                        'Sign in with',
+                        style: kLabelStyle,
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 30.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        _buildSocialBtn(
+                          () => print('Login with Facebook'),
+                          AssetImage(
+                            'assets/facebook.jpg',
+                          ),
+                        ),
+                        _buildSocialBtn(
+                          () => print('Login with Reddit'),
+                          AssetImage(
+                            'assets/reddit.png',
+                          ),
+                        ),
+                        _buildSocialBtn(
+                          () => print('Login with Google'),
+                          AssetImage(
+                            'assets/google.jpg',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

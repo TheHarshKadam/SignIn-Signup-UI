@@ -2,7 +2,7 @@
 
 A Simple SignIn and SignUp UI made with Flutter
 
-## Getting Started
+## Get Started
 
 This project is a starting point for a Flutter application.
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_media_integration/constants/constants.dart';
 import 'package:social_media_integration/screens/home.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -249,19 +249,28 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         _buildSocialBtn(
-                          () => print('Login with Facebook'),
+                          () async {
+                            const fburl = 'https://facebook.com/';
+                            if (await canLaunch(fburl)) launch(fburl);
+                          },
                           AssetImage(
                             'assets/facebook.jpg',
                           ),
                         ),
                         _buildSocialBtn(
-                          () => print('Login with Reddit'),
+                          () async {
+                            const redditurl = 'https://www.reddit.com/login/';
+                            if (await canLaunch(redditurl)) launch(redditurl);
+                          },
                           AssetImage(
                             'assets/reddit.png',
                           ),
                         ),
                         _buildSocialBtn(
-                          () => print('Login with Google'),
+                          () async {
+                            const mailurl = 'https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin';
+                            if (await canLaunch(mailurl)) launch(mailurl);
+                          },
                           AssetImage(
                             'assets/google.jpg',
                           ),

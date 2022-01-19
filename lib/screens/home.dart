@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class home extends StatelessWidget {
   const home({Key? key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,7 @@ class home extends StatelessWidget {
         elevation: 0.0,
       ),
       body: Container(
+        height: double.infinity,
         decoration: BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
@@ -35,109 +37,142 @@ class home extends StatelessWidget {
               0.7,
               0.9
             ])),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/avatar.jpg'),
-                  radius: 50.0,
-                ),
-              ),
-              Divider(
-                height: 100.0,
-                color: Colors.white,
-              ),
-              Container(
-                child: Text(
-                  'NAME',
-                  style:
-                      GoogleFonts.athiti(fontSize: 20.0, color: Colors.white),
-                ),
-              ),
-              Container(
-                child: Text(
-                  'Harshvardhan Kadam',
-                  style: GoogleFonts.inconsolata(
-                      color: Colors.white, fontSize: 25.0),
-                ),
-              ),
-              SizedBox(
-                height: 30.0,
-              ),
-              Container(
-                child: Text(
-                  'Birthday',
-                  style:
-                      GoogleFonts.athiti(fontSize: 20.0, color: Colors.white),
-                ),
-              ),
-              Container(
-                child: Text(
-                  'November 27th',
-                  style: GoogleFonts.inconsolata(
-                      color: Colors.white, fontSize: 25.0),
-                ),
-              ),
-              SizedBox(
-                height: 30.0,
-              ),
-              Container(
-                child: Text(
-                  'Email',
-                  style:
-                      GoogleFonts.athiti(fontSize: 20.0, color: Colors.white),
-                ),
-              ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.email,
-                    color: Colors.white,
+        child: SingleChildScrollView(
+          physics: AlwaysScrollableScrollPhysics(),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage('assets/avatar.jpg'),
+                    radius: 50.0,
                   ),
-                  SizedBox(
-                    width: 10.0,
+                ),
+                Divider(
+                  height: 80.0,
+                  color: Colors.white,
+                ),
+                Container(
+                  child: Text(
+                    'NAME',
+                    style:
+                        GoogleFonts.athiti(fontSize: 20.0, color: Colors.white),
                   ),
-                  Container(
-                    child: Text(
-                      'harshvardhankadam89@gmail.com',
-                      style: GoogleFonts.inconsolata(
-                          color: Colors.white,
-                          letterSpacing: 0.5,
-                          fontSize: 20.0),
-                    ),
+                ),
+                Container(
+                  child: Text(
+                    'Harshvardhan Kadam',
+                    style: GoogleFonts.inconsolata(
+                        color: Colors.white, fontSize: 25.0),
                   ),
-                ],
-              ),
-              SizedBox(
-                height: 120.0,
-              ),
-              Center(
-                child: Column(
+                ),
+                SizedBox(
+                  height: 30.0,
+                ),
+                Container(
+                  child: Text(
+                    'Birthday',
+                    style:
+                        GoogleFonts.athiti(fontSize: 20.0, color: Colors.white),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    'November 27th',
+                    style: GoogleFonts.inconsolata(
+                        color: Colors.white, fontSize: 25.0),
+                  ),
+                ),
+                SizedBox(
+                  height: 30.0,
+                ),
+                Container(
+                  child: Text(
+                    'Email',
+                    style:
+                        GoogleFonts.athiti(fontSize: 20.0, color: Colors.white),
+                  ),
+                ),
+                Row(
                   children: [
-                    Container(
-                      child: Text(
-                        'Intern At Sparks Foundation',
-                        style: GoogleFonts.inconsolata(
-                            color: Colors.white, letterSpacing: 0.5, fontSize: 20.0),
-                      ),
+                    Icon(
+                      Icons.email,
+                      color: Colors.white,
                     ),
                     SizedBox(
-                      height: 10.0,
+                      width: 10.0,
                     ),
                     Container(
                       child: Text(
-                        'Made Using Flutter',
+                        'harshvardhankadam89@gmail.com',
                         style: GoogleFonts.inconsolata(
-                            color: Colors.white, letterSpacing: 0.5, fontSize: 20.0),
+                            color: Colors.white,
+                            letterSpacing: 0.5,
+                            fontSize: 20.0),
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 30.0,
+                ),
+                Container(
+                  child: Text(
+                    'Address',
+                    style:
+                        GoogleFonts.athiti(fontSize: 20.0, color: Colors.white),
+                  ),
+                ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.location_city,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    Container(
+                      child: Text(
+                        'Mumbai, Maharashtra',
+                        style: GoogleFonts.inconsolata(
+                            color: Colors.white,
+                            letterSpacing: 0.5,
+                            fontSize: 20.0),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 60.0,
+                ),
+                Center(
+                  child: Column(
+                    children: [
+                      Container(
+                        child: Text(
+                          'Intern At Sparks Foundation',
+                          style: GoogleFonts.inconsolata(
+                              color: Colors.white, letterSpacing: 0.5, fontSize: 20.0),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Container(
+                        child: Text(
+                          'Made Using Flutter',
+                          style: GoogleFonts.inconsolata(
+                              color: Colors.white, letterSpacing: 0.5, fontSize: 20.0),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

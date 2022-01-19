@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_media_integration/constants/constants.dart';
-import 'package:external_app_launcher/external_app_launcher.dart';
+import 'package:social_media_integration/screens/home.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -115,7 +116,12 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: EdgeInsets.symmetric(vertical: 15.0),
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => home()),
+          );
+        },
         style: ElevatedButton.styleFrom(
             primary: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),

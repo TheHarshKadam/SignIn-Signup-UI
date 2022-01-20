@@ -1,4 +1,4 @@
-# Sign In Sign up UI
+# Social Media Integration
 
 A Simple SignIn and SignUp UI made with Flutter
 
